@@ -6,14 +6,15 @@ export type TextProps = {
     size?: 'sm' | 'md' | 'lg'
     children: ReactNode
     asChild?: boolean
+    className?: string
 }
 
-export const Text = ({size = 'md', asChild, children}: TextProps) => {
+export const Text = ({size = 'md', asChild, children, className}: TextProps) => {
     const Comp = asChild ? Slot: 'span'
 
     return <Comp className={clsx('text-gray-100 font-sans', {
         'text-xs': size === 'sm',
         'text-sm': size === 'md',
         'text-md': size === 'lg',
-    })}>{children}</Comp>
+    }, className)}>{children}</Comp>
 }
